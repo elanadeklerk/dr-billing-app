@@ -631,12 +631,12 @@
 <body>
 
 <!-- Config Button -->
-<button class="config-btn" onclick="openConfig()" title="Settings">âš™ï¸</button>
+<button class="config-btn" onclick="openConfig()" title="Settings">[SET]</button>
 
 <!-- Config Modal -->
 <div class="modal-overlay" id="configModal">
   <div class="modal">
-    <div class="modal-title">âš™ï¸ App Configuration</div>
+    <div class="modal-title">App Configuration</div>
 
     <div class="tip">
       These settings are saved on this device only. Keep your API keys private.
@@ -667,7 +667,7 @@
       <input class="config-input" id="cfg-drname" placeholder="Dr Smith" style="font-family: var(--font); font-size:14px;" />
     </div>
 
-    <button class="btn btn-primary" onclick="saveConfig()" style="margin-top:4px;">ðŸ’¾ Save Settings</button>
+    <button class="btn btn-primary" onclick="saveConfig()" style="margin-top:4px;">Save Settings</button>
     <button class="btn btn-secondary" onclick="closeConfig()" style="margin-top:10px;">Cancel</button>
   </div>
 </div>
@@ -706,17 +706,17 @@
 
   <div id="notConfigured" style="display:none;">
     <div class="not-configured">
-      <div class="not-configured-icon">âš™ï¸</div>
+      <div class="not-configured-icon">[SET]</div>
       <h2>Setup Required</h2>
-      <p>Tap the âš™ï¸ button below to enter your API keys and Sheet IDs to get started.</p>
+      <p>Tap the [SET] button below to enter your API keys and Sheet IDs to get started.</p>
     </div>
   </div>
 
   <div id="configuredView">
     <div class="card">
-      <div class="card-title">ðŸ” Find Patient</div>
+      <div class="card-title">Find Patient</div>
       <div class="search-wrap">
-        <span class="search-icon">ðŸ”</span>
+        <span class="search-icon">[FIND]</span>
         <input type="text" id="searchInput" placeholder="Type patient name or file number..." oninput="searchPatient(this.value)" autocomplete="off" />
       </div>
       <div class="patient-results" id="patientResults"></div>
@@ -762,7 +762,7 @@
 
   <!-- Date of Service -->
   <div class="card">
-    <div class="card-title">ðŸ“… Date of Service</div>
+    <div class="card-title">Date of Service</div>
     <div class="field-wrap">
       <input class="field-input" type="date" id="dosDate" />
     </div>
@@ -770,7 +770,7 @@
 
   <!-- Voice Recording -->
   <div class="card">
-    <div class="card-title">ðŸŽ¤ Voice Billing</div>
+    <div class="card-title">Voice Billing</div>
 
     <div class="tip">
       Speak naturally, e.g:<br>
@@ -779,7 +779,7 @@
     </div>
 
     <div class="record-wrap">
-      <button class="record-btn" id="recordBtn" onclick="toggleRecording()">ðŸŽ¤</button>
+      <button class="record-btn" id="recordBtn" onclick="toggleRecording()">[MIC]</button>
       <div class="record-label" id="recordLabel">Tap to start recording</div>
     </div>
 
@@ -788,7 +788,7 @@
     </div>
 
     <button class="btn btn-secondary" id="processBtn" onclick="processWithAI()" style="display:none;">
-      ðŸ¤– Extract Billing Codes
+      Extract Billing Codes
     </button>
   </div>
 
@@ -800,7 +800,7 @@
 <div class="screen" id="screen3">
 
   <div class="card">
-    <div class="card-title">âœ… Confirm Billing Details</div>
+    <div class="card-title">Confirm Billing Details</div>
 
     <div id="aiStatusBox"></div>
 
@@ -847,10 +847,10 @@
   </div>
 
   <button class="btn btn-success" id="submitBtn" onclick="submitBilling()">
-    âœ… Submit Billing Entry
+    Submit Billing Entry
   </button>
   <button class="btn btn-secondary" onclick="goToScreen(2)" style="margin-top:10px;">
-    â† Back to Recording
+    &larr; Back to Recording
   </button>
 
 </div>
@@ -860,7 +860,7 @@
 â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <div class="screen" id="screen4">
   <div class="success-wrap">
-    <div class="success-icon">âœ…</div>
+    <div class="success-icon">[OK]</div>
     <div class="success-title">Billing Submitted!</div>
     <div class="success-sub" id="successMsg">Entry logged to billing sheet successfully.</div>
     <button class="btn btn-primary" onclick="newBilling()" style="max-width:280px;">
@@ -927,7 +927,7 @@ function saveConfig() {
   }
   closeConfig();
   checkConfig();
-  alert('âœ… Settings saved!');
+  alert('[OK] Settings saved!');
 }
 
 function checkConfig() {
@@ -962,7 +962,7 @@ async function loadPatients() {
       wcaClaim:  r[20] || '',
       insurCo:   r[22] || '',
       policyNo:  r[23] || '',
-    })).filter(p => p.fileNo && p.name);
+    })).filter(p => p.fileNo && p.name && p.fileNo.toString().startsWith("PT-"));
   } catch(e) {
     console.error('Failed to load patients:', e);
   }
@@ -1056,7 +1056,7 @@ function startRecording() {
   recognition.start();
   isRecording = true;
   document.getElementById('recordBtn').classList.add('recording');
-  document.getElementById('recordBtn').textContent = 'â¹ï¸';
+  document.getElementById('recordBtn').textContent = '[STOP]';
   document.getElementById('recordLabel').textContent = 'Recording... tap to stop';
   document.getElementById('recordLabel').classList.add('recording');
   document.getElementById('processBtn').style.display = 'none';
@@ -1066,7 +1066,7 @@ function stopRecording() {
   if (recognition) recognition.stop();
   isRecording = false;
   document.getElementById('recordBtn').classList.remove('recording');
-  document.getElementById('recordBtn').textContent = 'ðŸŽ¤';
+  document.getElementById('recordBtn').textContent = '[MIC]';
   document.getElementById('recordLabel').textContent = 'Tap to record again';
   document.getElementById('recordLabel').classList.remove('recording');
   if (transcript) {
@@ -1130,11 +1130,11 @@ Rules:
     document.getElementById('conf-icd10').value    = codes.icd10    || '';
     document.getElementById('conf-modifier').value = codes.modifier || '';
 
-    showAIStatus('done', 'âœ… Codes extracted â€” please review and confirm');
+    showAIStatus('done', '[OK] Codes extracted â€” please review and confirm');
 
   } catch(e) {
     console.error(e);
-    showAIStatus('error', 'âš ï¸ Could not extract codes automatically â€” please fill in manually');
+    showAIStatus('error', '[WARN] Could not extract codes automatically â€” please fill in manually');
   }
 }
 
@@ -1150,7 +1150,7 @@ const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzC-x4lAWQJ65K5
 async function submitBilling() {
   const btn = document.getElementById('submitBtn');
   btn.disabled = true;
-  btn.textContent = 'â³ Submitting...';
+  btn.textContent = 'Submitting...';
 
   const tariff   = document.getElementById('conf-tariff').value.trim();
   const icd10    = document.getElementById('conf-icd10').value.trim();
@@ -1161,7 +1161,7 @@ async function submitBilling() {
   if (!tariff || !icd10) {
     alert('Please enter at least a Tariff Code and ICD-10 Code before submitting.');
     btn.disabled = false;
-    btn.textContent = 'âœ… Submit Billing Entry';
+    btn.textContent = 'Submit Billing Entry';
     return;
   }
 
@@ -1194,9 +1194,9 @@ async function submitBilling() {
 
   } catch(e) {
     console.error(e);
-    alert('âš ï¸ Failed to submit to sheet. Please check your settings and try again.');
+    alert('[WARN] Failed to submit to sheet. Please check your settings and try again.');
     btn.disabled = false;
-    btn.textContent = 'âœ… Submit Billing Entry';
+    btn.textContent = 'Submit Billing Entry';
   }
 }
 
