@@ -1100,21 +1100,24 @@ async function processWithAI() {
         max_tokens: 500,
         messages: [{
           role: 'user',
-          content: `You are a South African medical billing assistant. Extract billing codes from this dictation and return ONLY a JSON object with no markdown or explanation.
+          content: `You are a South African medical billing assistant. Extract ALL billing codes from this dictation and return ONLY a JSON object with no markdown or explanation.
 
 Dictation: "${transcript}"
 
 Return exactly this JSON structure:
 {
-  "tariff": "extracted tariff/procedure code(s), comma separated if multiple",
-  "icd10": "extracted ICD-10 code(s), comma separated if multiple",
-  "modifier": "extracted modifier code(s) or empty string if none"
+  "tariff": "ALL tariff/procedure codes comma separated e.g. 0190, 0191, 0192",
+  "icd10": "ALL ICD-10 codes comma separated e.g. S62.3, M54.5, J06.9",
+  "modifier": "modifier code(s) comma separated or empty string if none"
 }
 
 Rules:
-- Tariff codes are numeric (e.g. 0190, 0191)
+- Extract EVERY tariff code mentioned - there may be multiple
+- Extract EVERY ICD-10 code mentioned - there may be multiple  
+- Tariff codes are numeric (e.g. 0190, 0191, 0192)
 - ICD-10 codes follow pattern like S62.3, M54.5, J06.9
 - Modifiers are numeric (e.g. 0009, 0012)
+- If the doctor says "and" between codes, include ALL of them
 - If a value is not mentioned, use empty string
 - Return ONLY the JSON, nothing else`
         }]
