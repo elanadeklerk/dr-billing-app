@@ -35,7 +35,7 @@
     padding-bottom: 40px;
   }
 
-  /* â”€â”€ Header â”€â”€ */
+  /* -- Header -- */
   .header {
     background: linear-gradient(135deg, #1a1d27 0%, #0f1117 100%);
     padding: 20px 20px 16px;
@@ -78,7 +78,7 @@
     color: var(--text3);
   }
 
-  /* â”€â”€ Steps â”€â”€ */
+  /* -- Steps -- */
   .steps {
     display: flex;
     padding: 16px 20px;
@@ -113,11 +113,11 @@
     background: var(--border);
   }
 
-  /* â”€â”€ Screens â”€â”€ */
+  /* -- Screens -- */
   .screen { display: none; padding: 0 20px; }
   .screen.active { display: block; }
 
-  /* â”€â”€ Cards â”€â”€ */
+  /* -- Cards -- */
   .card {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -135,7 +135,7 @@
     margin-bottom: 14px;
   }
 
-  /* â”€â”€ Search â”€â”€ */
+  /* -- Search -- */
   .search-wrap {
     position: relative;
     margin-bottom: 12px;
@@ -165,7 +165,7 @@
     font-size: 18px;
   }
 
-  /* â”€â”€ Patient Results â”€â”€ */
+  /* -- Patient Results -- */
   .patient-results { display: none; }
 
   .patient-item {
@@ -207,7 +207,7 @@
     font-family: var(--mono);
   }
 
-  /* â”€â”€ Selected Patient â”€â”€ */
+  /* -- Selected Patient -- */
   .selected-patient {
     background: linear-gradient(135deg, rgba(79,142,247,0.12), rgba(124,92,252,0.08));
     border: 1.5px solid rgba(79,142,247,0.3);
@@ -261,7 +261,7 @@
     font-family: var(--mono);
   }
 
-  /* â”€â”€ Buttons â”€â”€ */
+  /* -- Buttons -- */
   .btn {
     width: 100%;
     padding: 16px;
@@ -309,7 +309,7 @@
     box-shadow: 0 4px 20px rgba(52,211,153,0.3);
   }
 
-  /* â”€â”€ Record Button â”€â”€ */
+  /* -- Record Button -- */
   .record-wrap {
     display: flex;
     flex-direction: column;
@@ -352,7 +352,7 @@
 
   .record-label.recording { color: var(--danger); }
 
-  /* â”€â”€ Transcript â”€â”€ */
+  /* -- Transcript -- */
   .transcript-box {
     background: var(--surface2);
     border: 1.5px solid var(--border);
@@ -376,7 +376,7 @@
     font-size: 13px;
   }
 
-  /* â”€â”€ Extracted Codes â”€â”€ */
+  /* -- Extracted Codes -- */
   .codes-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -427,7 +427,7 @@
 
   .code-input::placeholder { color: var(--text3); font-size: 13px; font-family: var(--font); font-weight: 400; }
 
-  /* â”€â”€ Date Field â”€â”€ */
+  /* -- Date Field -- */
   .field-wrap { margin-bottom: 12px; }
 
   .field-label {
@@ -452,7 +452,7 @@
 
   .field-input:focus { border-color: var(--accent); }
 
-  /* â”€â”€ AI Status â”€â”€ */
+  /* -- AI Status -- */
   .ai-status {
     display: flex;
     align-items: center;
@@ -492,7 +492,7 @@
 
   @keyframes spin { to { transform: rotate(360deg); } }
 
-  /* â”€â”€ Success Screen â”€â”€ */
+  /* -- Success Screen -- */
   .success-wrap {
     display: flex;
     flex-direction: column;
@@ -526,7 +526,7 @@
     line-height: 1.6;
   }
 
-  /* â”€â”€ Config Screen â”€â”€ */
+  /* -- Config Screen -- */
   .config-btn {
     position: fixed;
     bottom: 20px; right: 20px;
@@ -699,9 +699,9 @@
   </div>
 </div>
 
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-     SCREEN 1 â€” Patient Search
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- ======================================
+     SCREEN 1 - Patient Search
+====================================== -->
 <div class="screen active" id="screen1">
 
   <div id="notConfigured" style="display:none;">
@@ -726,36 +726,36 @@
 
 </div>
 
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-     SCREEN 2 â€” Voice Billing
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- ======================================
+     SCREEN 2 - Voice Billing
+====================================== -->
 <div class="screen" id="screen2">
 
   <!-- Selected Patient -->
   <div class="selected-patient" id="selectedPatientCard">
     <div class="selected-patient-header">
       <div>
-        <div class="selected-name" id="sel-name">â€”</div>
-        <div style="margin-top:4px;"><span class="file-badge" id="sel-fileno">â€”</span></div>
+        <div class="selected-name" id="sel-name">-</div>
+        <div style="margin-top:4px;"><span class="file-badge" id="sel-fileno">-</span></div>
       </div>
       <button class="change-btn" onclick="goToScreen(1)">Change</button>
     </div>
     <div class="patient-details-grid">
       <div class="detail-item">
         <div class="detail-label">Funding</div>
-        <div class="detail-value" id="sel-funding">â€”</div>
+        <div class="detail-value" id="sel-funding">-</div>
       </div>
       <div class="detail-item">
         <div class="detail-label">Medical Aid</div>
-        <div class="detail-value" id="sel-medaid">â€”</div>
+        <div class="detail-value" id="sel-medaid">-</div>
       </div>
       <div class="detail-item">
         <div class="detail-label">Plan</div>
-        <div class="detail-value" id="sel-plan">â€”</div>
+        <div class="detail-value" id="sel-plan">-</div>
       </div>
       <div class="detail-item">
         <div class="detail-label">Membership</div>
-        <div class="detail-value" id="sel-memb">â€”</div>
+        <div class="detail-value" id="sel-memb">-</div>
       </div>
     </div>
   </div>
@@ -794,9 +794,9 @@
 
 </div>
 
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-     SCREEN 3 â€” Confirm & Submit
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- ======================================
+     SCREEN 3 - Confirm & Submit
+====================================== -->
 <div class="screen" id="screen3">
 
   <div class="card">
@@ -819,7 +819,7 @@
       </div>
       <div class="code-item">
         <div class="code-label">Date of Service</div>
-        <div class="code-value" id="conf-dos" style="font-size:13px;">â€”</div>
+        <div class="code-value" id="conf-dos" style="font-size:13px;">-</div>
       </div>
     </div>
 
@@ -828,15 +828,15 @@
     <div class="codes-grid" style="margin-bottom:0;">
       <div class="code-item">
         <div class="code-label">File No</div>
-        <div class="code-value" id="conf-fileno" style="font-size:13px;">â€”</div>
+        <div class="code-value" id="conf-fileno" style="font-size:13px;">-</div>
       </div>
       <div class="code-item">
         <div class="code-label">Patient</div>
-        <div class="code-value" id="conf-patient" style="font-size:12px;">â€”</div>
+        <div class="code-value" id="conf-patient" style="font-size:12px;">-</div>
       </div>
       <div class="code-item" style="grid-column:1/-1;">
         <div class="code-label">Funding</div>
-        <div class="code-value" id="conf-funding" style="font-size:13px;">â€”</div>
+        <div class="code-value" id="conf-funding" style="font-size:13px;">-</div>
       </div>
     </div>
   </div>
@@ -855,9 +855,9 @@
 
 </div>
 
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-     SCREEN 4 â€” Success
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- ======================================
+     SCREEN 4 - Success
+====================================== -->
 <div class="screen" id="screen4">
   <div class="success-wrap">
     <div class="success-icon">[OK]</div>
@@ -873,7 +873,7 @@
 </div>
 
 <script>
-// â”€â”€ State â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// -- State ----------------------------------------------
 let config = {};
 let selectedPatient = null;
 let transcript = '';
@@ -881,7 +881,7 @@ let recognition = null;
 let isRecording = false;
 let allPatients = [];
 
-// â”€â”€ Init â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// -- Init -----------------------------------------------
 window.onload = () => {
   loadConfig();
   setTodayDate();
@@ -895,7 +895,7 @@ function setTodayDate() {
   document.getElementById('dosDate').value = now.toISOString().split('T')[0];
 }
 
-// â”€â”€ Config â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// -- Config ---------------------------------------------
 function loadConfig() {
   try {
     const saved = localStorage.getItem('billingAppConfig');
@@ -907,7 +907,7 @@ function loadConfig() {
       document.getElementById('cfg-intakeid').value  = config.intakeId     || '';
       document.getElementById('cfg-drname').value    = config.drName       || '';
       if (config.drName) {
-        document.getElementById('drNameHeader').textContent = config.drName + ' â€” Billing';
+        document.getElementById('drNameHeader').textContent = config.drName + ' - Billing';
       }
     }
   } catch(e) {}
@@ -923,7 +923,7 @@ function saveConfig() {
   };
   localStorage.setItem('billingAppConfig', JSON.stringify(config));
   if (config.drName) {
-    document.getElementById('drNameHeader').textContent = config.drName + ' â€” Billing';
+    document.getElementById('drNameHeader').textContent = config.drName + ' - Billing';
   }
   closeConfig();
   checkConfig();
@@ -940,7 +940,7 @@ function checkConfig() {
 function openConfig()  { document.getElementById('configModal').classList.add('active'); }
 function closeConfig() { document.getElementById('configModal').classList.remove('active'); }
 
-// â”€â”€ Load Patients from Intake Sheet â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// -- Load Patients from Intake Sheet -------------------
 async function loadPatients() {
   try {
     const url = `https://sheets.googleapis.com/v4/spreadsheets/${config.intakeId}/values/Form%20Responses%201?key=${config.googleKey}`;
@@ -968,7 +968,7 @@ async function loadPatients() {
   }
 }
 
-// â”€â”€ Patient Search â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// -- Patient Search -------------------------------------
 function searchPatient(query) {
   const resultsEl = document.getElementById('patientResults');
   const hintEl    = document.getElementById('searchHint');
@@ -1010,14 +1010,14 @@ function selectPatient(idx) {
   selectedPatient = allPatients[idx];
   document.getElementById('sel-name').textContent    = selectedPatient.name;
   document.getElementById('sel-fileno').textContent  = selectedPatient.fileNo;
-  document.getElementById('sel-funding').textContent = selectedPatient.funding || 'â€”';
-  document.getElementById('sel-medaid').textContent  = selectedPatient.medAid  || 'â€”';
-  document.getElementById('sel-plan').textContent    = selectedPatient.plan    || 'â€”';
-  document.getElementById('sel-memb').textContent    = selectedPatient.membNo  || 'â€”';
+  document.getElementById('sel-funding').textContent = selectedPatient.funding || '-';
+  document.getElementById('sel-medaid').textContent  = selectedPatient.medAid  || '-';
+  document.getElementById('sel-plan').textContent    = selectedPatient.plan    || '-';
+  document.getElementById('sel-memb').textContent    = selectedPatient.membNo  || '-';
   goToScreen(2);
 }
 
-// â”€â”€ Recording â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// -- Recording ------------------------------------------
 function toggleRecording() {
   if (!isRecording) startRecording();
   else stopRecording();
@@ -1074,7 +1074,7 @@ function stopRecording() {
   }
 }
 
-// â”€â”€ AI Processing â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// -- AI Processing --------------------------------------
 async function processWithAI() {
   if (!transcript) return;
   goToScreen(3);
@@ -1083,7 +1083,7 @@ async function processWithAI() {
   // Pre-fill confirmation screen
   document.getElementById('conf-fileno').textContent  = selectedPatient.fileNo;
   document.getElementById('conf-patient').textContent = selectedPatient.name;
-  document.getElementById('conf-funding').textContent = selectedPatient.funding + (selectedPatient.medAid ? ' â€” ' + selectedPatient.medAid : '');
+  document.getElementById('conf-funding').textContent = selectedPatient.funding + (selectedPatient.medAid ? ' - ' + selectedPatient.medAid : '');
   document.getElementById('conf-dos').textContent     = document.getElementById('dosDate').value;
 
   try {
@@ -1130,11 +1130,11 @@ Rules:
     document.getElementById('conf-icd10').value    = codes.icd10    || '';
     document.getElementById('conf-modifier').value = codes.modifier || '';
 
-    showAIStatus('done', '[OK] Codes extracted â€” please review and confirm');
+    showAIStatus('done', '[OK] Codes extracted - please review and confirm');
 
   } catch(e) {
     console.error(e);
-    showAIStatus('error', '[WARN] Could not extract codes automatically â€” please fill in manually');
+    showAIStatus('error', '[WARN] Could not extract codes automatically - please fill in manually');
   }
 }
 
@@ -1144,7 +1144,7 @@ function showAIStatus(type, msg) {
   box.innerHTML = `<div class="ai-status ${type}">${spinner}<span>${msg}</span></div>`;
 }
 
-// â”€â”€ Submit Billing â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// -- Submit Billing -------------------------------------
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzC-x4lAWQJ65K5YMqsyVzbgrjl_7eo7IpwnPB3LZYGr1lby_pWA-d3KJa6eZrjGgBu/exec';
 
 async function submitBilling() {
@@ -1189,7 +1189,7 @@ async function submitBilling() {
     if (!result.success) throw new Error(result.error || 'Submit failed');
 
     document.getElementById('successMsg').textContent =
-      `${selectedPatient.name} (${selectedPatient.fileNo}) â€” ${tariff} / ${icd10} logged successfully.`;
+      `${selectedPatient.name} (${selectedPatient.fileNo}) - ${tariff} / ${icd10} logged successfully.`;
     goToScreen(4);
 
   } catch(e) {
@@ -1200,7 +1200,7 @@ async function submitBilling() {
   }
 }
 
-// â”€â”€ Navigation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// -- Navigation -----------------------------------------
 function goToScreen(n) {
   document.querySelectorAll('.screen').forEach((s,i) => {
     s.classList.toggle('active', i === n - 1);
