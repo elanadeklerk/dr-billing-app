@@ -955,7 +955,8 @@ async function loadPatients() {
       document.getElementById("debugInfo").textContent = "No data: " + JSON.stringify(data).substring(0, 200);
       return;
     }
-    document.getElementById("debugInfo").textContent = "Loaded " + (data.values.length - 1) + " rows. Patients found: " + allPatients.length + ". First: " + (allPatients[0] ? allPatients[0].name + " / " + allPatients[0].funding : "none");
+    const rawNames = data.values.slice(1).map(r => r[2] || "empty").join(", ");
+    document.getElementById("debugInfo").textContent = "Loaded " + (data.values.length - 1) + " rows. Names at col2: " + rawNames.substring(0, 150) + ". Patients found: " + allPatients.length;
 
     const rows = data.values.slice(1); // skip header
     allPatients = rows.map(r => ({
