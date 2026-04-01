@@ -35,7 +35,7 @@
     padding-bottom: 40px;
   }
 
-  /* ── Header ── */
+  /* â”€â”€ Header â”€â”€ */
   .header {
     background: linear-gradient(135deg, #1a1d27 0%, #0f1117 100%);
     padding: 20px 20px 16px;
@@ -78,7 +78,7 @@
     color: var(--text3);
   }
 
-  /* ── Steps ── */
+  /* â”€â”€ Steps â”€â”€ */
   .steps {
     display: flex;
     padding: 16px 20px;
@@ -113,11 +113,11 @@
     background: var(--border);
   }
 
-  /* ── Screens ── */
+  /* â”€â”€ Screens â”€â”€ */
   .screen { display: none; padding: 0 20px; }
   .screen.active { display: block; }
 
-  /* ── Cards ── */
+  /* â”€â”€ Cards â”€â”€ */
   .card {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -135,7 +135,7 @@
     margin-bottom: 14px;
   }
 
-  /* ── Search ── */
+  /* â”€â”€ Search â”€â”€ */
   .search-wrap {
     position: relative;
     margin-bottom: 12px;
@@ -165,7 +165,7 @@
     font-size: 18px;
   }
 
-  /* ── Patient Results ── */
+  /* â”€â”€ Patient Results â”€â”€ */
   .patient-results { display: none; }
 
   .patient-item {
@@ -207,7 +207,7 @@
     font-family: var(--mono);
   }
 
-  /* ── Selected Patient ── */
+  /* â”€â”€ Selected Patient â”€â”€ */
   .selected-patient {
     background: linear-gradient(135deg, rgba(79,142,247,0.12), rgba(124,92,252,0.08));
     border: 1.5px solid rgba(79,142,247,0.3);
@@ -261,7 +261,7 @@
     font-family: var(--mono);
   }
 
-  /* ── Buttons ── */
+  /* â”€â”€ Buttons â”€â”€ */
   .btn {
     width: 100%;
     padding: 16px;
@@ -309,7 +309,7 @@
     box-shadow: 0 4px 20px rgba(52,211,153,0.3);
   }
 
-  /* ── Record Button ── */
+  /* â”€â”€ Record Button â”€â”€ */
   .record-wrap {
     display: flex;
     flex-direction: column;
@@ -352,7 +352,7 @@
 
   .record-label.recording { color: var(--danger); }
 
-  /* ── Transcript ── */
+  /* â”€â”€ Transcript â”€â”€ */
   .transcript-box {
     background: var(--surface2);
     border: 1.5px solid var(--border);
@@ -376,7 +376,7 @@
     font-size: 13px;
   }
 
-  /* ── Extracted Codes ── */
+  /* â”€â”€ Extracted Codes â”€â”€ */
   .codes-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -427,7 +427,7 @@
 
   .code-input::placeholder { color: var(--text3); font-size: 13px; font-family: var(--font); font-weight: 400; }
 
-  /* ── Date Field ── */
+  /* â”€â”€ Date Field â”€â”€ */
   .field-wrap { margin-bottom: 12px; }
 
   .field-label {
@@ -452,7 +452,7 @@
 
   .field-input:focus { border-color: var(--accent); }
 
-  /* ── AI Status ── */
+  /* â”€â”€ AI Status â”€â”€ */
   .ai-status {
     display: flex;
     align-items: center;
@@ -492,7 +492,7 @@
 
   @keyframes spin { to { transform: rotate(360deg); } }
 
-  /* ── Success Screen ── */
+  /* â”€â”€ Success Screen â”€â”€ */
   .success-wrap {
     display: flex;
     flex-direction: column;
@@ -526,7 +526,7 @@
     line-height: 1.6;
   }
 
-  /* ── Config Screen ── */
+  /* â”€â”€ Config Screen â”€â”€ */
   .config-btn {
     position: fixed;
     bottom: 20px; right: 20px;
@@ -631,12 +631,12 @@
 <body>
 
 <!-- Config Button -->
-<button class="config-btn" onclick="openConfig()" title="Settings">⚙️</button>
+<button class="config-btn" onclick="openConfig()" title="Settings">âš™ï¸</button>
 
 <!-- Config Modal -->
 <div class="modal-overlay" id="configModal">
   <div class="modal">
-    <div class="modal-title">⚙️ App Configuration</div>
+    <div class="modal-title">âš™ï¸ App Configuration</div>
 
     <div class="tip">
       These settings are saved on this device only. Keep your API keys private.
@@ -667,7 +667,7 @@
       <input class="config-input" id="cfg-drname" placeholder="Dr Smith" style="font-family: var(--font); font-size:14px;" />
     </div>
 
-    <button class="btn btn-primary" onclick="saveConfig()" style="margin-top:4px;">💾 Save Settings</button>
+    <button class="btn btn-primary" onclick="saveConfig()" style="margin-top:4px;">ðŸ’¾ Save Settings</button>
     <button class="btn btn-secondary" onclick="closeConfig()" style="margin-top:10px;">Cancel</button>
   </div>
 </div>
@@ -699,24 +699,24 @@
   </div>
 </div>
 
-<!-- ══════════════════════════════════════
-     SCREEN 1 — Patient Search
-══════════════════════════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     SCREEN 1 â€” Patient Search
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <div class="screen active" id="screen1">
 
   <div id="notConfigured" style="display:none;">
     <div class="not-configured">
-      <div class="not-configured-icon">⚙️</div>
+      <div class="not-configured-icon">âš™ï¸</div>
       <h2>Setup Required</h2>
-      <p>Tap the ⚙️ button below to enter your API keys and Sheet IDs to get started.</p>
+      <p>Tap the âš™ï¸ button below to enter your API keys and Sheet IDs to get started.</p>
     </div>
   </div>
 
   <div id="configuredView">
     <div class="card">
-      <div class="card-title">🔍 Find Patient</div>
+      <div class="card-title">ðŸ” Find Patient</div>
       <div class="search-wrap">
-        <span class="search-icon">🔍</span>
+        <span class="search-icon">ðŸ”</span>
         <input type="text" id="searchInput" placeholder="Type patient name or file number..." oninput="searchPatient(this.value)" autocomplete="off" />
       </div>
       <div class="patient-results" id="patientResults"></div>
@@ -726,43 +726,43 @@
 
 </div>
 
-<!-- ══════════════════════════════════════
-     SCREEN 2 — Voice Billing
-══════════════════════════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     SCREEN 2 â€” Voice Billing
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <div class="screen" id="screen2">
 
   <!-- Selected Patient -->
   <div class="selected-patient" id="selectedPatientCard">
     <div class="selected-patient-header">
       <div>
-        <div class="selected-name" id="sel-name">—</div>
-        <div style="margin-top:4px;"><span class="file-badge" id="sel-fileno">—</span></div>
+        <div class="selected-name" id="sel-name">â€”</div>
+        <div style="margin-top:4px;"><span class="file-badge" id="sel-fileno">â€”</span></div>
       </div>
       <button class="change-btn" onclick="goToScreen(1)">Change</button>
     </div>
     <div class="patient-details-grid">
       <div class="detail-item">
         <div class="detail-label">Funding</div>
-        <div class="detail-value" id="sel-funding">—</div>
+        <div class="detail-value" id="sel-funding">â€”</div>
       </div>
       <div class="detail-item">
         <div class="detail-label">Medical Aid</div>
-        <div class="detail-value" id="sel-medaid">—</div>
+        <div class="detail-value" id="sel-medaid">â€”</div>
       </div>
       <div class="detail-item">
         <div class="detail-label">Plan</div>
-        <div class="detail-value" id="sel-plan">—</div>
+        <div class="detail-value" id="sel-plan">â€”</div>
       </div>
       <div class="detail-item">
         <div class="detail-label">Membership</div>
-        <div class="detail-value" id="sel-memb">—</div>
+        <div class="detail-value" id="sel-memb">â€”</div>
       </div>
     </div>
   </div>
 
   <!-- Date of Service -->
   <div class="card">
-    <div class="card-title">📅 Date of Service</div>
+    <div class="card-title">ðŸ“… Date of Service</div>
     <div class="field-wrap">
       <input class="field-input" type="date" id="dosDate" />
     </div>
@@ -770,7 +770,7 @@
 
   <!-- Voice Recording -->
   <div class="card">
-    <div class="card-title">🎤 Voice Billing</div>
+    <div class="card-title">ðŸŽ¤ Voice Billing</div>
 
     <div class="tip">
       Speak naturally, e.g:<br>
@@ -779,7 +779,7 @@
     </div>
 
     <div class="record-wrap">
-      <button class="record-btn" id="recordBtn" onclick="toggleRecording()">🎤</button>
+      <button class="record-btn" id="recordBtn" onclick="toggleRecording()">ðŸŽ¤</button>
       <div class="record-label" id="recordLabel">Tap to start recording</div>
     </div>
 
@@ -788,19 +788,19 @@
     </div>
 
     <button class="btn btn-secondary" id="processBtn" onclick="processWithAI()" style="display:none;">
-      🤖 Extract Billing Codes
+      ðŸ¤– Extract Billing Codes
     </button>
   </div>
 
 </div>
 
-<!-- ══════════════════════════════════════
-     SCREEN 3 — Confirm & Submit
-══════════════════════════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     SCREEN 3 â€” Confirm & Submit
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <div class="screen" id="screen3">
 
   <div class="card">
-    <div class="card-title">✅ Confirm Billing Details</div>
+    <div class="card-title">âœ… Confirm Billing Details</div>
 
     <div id="aiStatusBox"></div>
 
@@ -819,7 +819,7 @@
       </div>
       <div class="code-item">
         <div class="code-label">Date of Service</div>
-        <div class="code-value" id="conf-dos" style="font-size:13px;">—</div>
+        <div class="code-value" id="conf-dos" style="font-size:13px;">â€”</div>
       </div>
     </div>
 
@@ -828,15 +828,15 @@
     <div class="codes-grid" style="margin-bottom:0;">
       <div class="code-item">
         <div class="code-label">File No</div>
-        <div class="code-value" id="conf-fileno" style="font-size:13px;">—</div>
+        <div class="code-value" id="conf-fileno" style="font-size:13px;">â€”</div>
       </div>
       <div class="code-item">
         <div class="code-label">Patient</div>
-        <div class="code-value" id="conf-patient" style="font-size:12px;">—</div>
+        <div class="code-value" id="conf-patient" style="font-size:12px;">â€”</div>
       </div>
       <div class="code-item" style="grid-column:1/-1;">
         <div class="code-label">Funding</div>
-        <div class="code-value" id="conf-funding" style="font-size:13px;">—</div>
+        <div class="code-value" id="conf-funding" style="font-size:13px;">â€”</div>
       </div>
     </div>
   </div>
@@ -847,20 +847,20 @@
   </div>
 
   <button class="btn btn-success" id="submitBtn" onclick="submitBilling()">
-    ✅ Submit Billing Entry
+    âœ… Submit Billing Entry
   </button>
   <button class="btn btn-secondary" onclick="goToScreen(2)" style="margin-top:10px;">
-    ← Back to Recording
+    â† Back to Recording
   </button>
 
 </div>
 
-<!-- ══════════════════════════════════════
-     SCREEN 4 — Success
-══════════════════════════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     SCREEN 4 â€” Success
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <div class="screen" id="screen4">
   <div class="success-wrap">
-    <div class="success-icon">✅</div>
+    <div class="success-icon">âœ…</div>
     <div class="success-title">Billing Submitted!</div>
     <div class="success-sub" id="successMsg">Entry logged to billing sheet successfully.</div>
     <button class="btn btn-primary" onclick="newBilling()" style="max-width:280px;">
@@ -873,7 +873,7 @@
 </div>
 
 <script>
-// ── State ──────────────────────────────────────────────
+// â”€â”€ State â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 let config = {};
 let selectedPatient = null;
 let transcript = '';
@@ -881,7 +881,7 @@ let recognition = null;
 let isRecording = false;
 let allPatients = [];
 
-// ── Init ───────────────────────────────────────────────
+// â”€â”€ Init â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 window.onload = () => {
   loadConfig();
   setTodayDate();
@@ -895,7 +895,7 @@ function setTodayDate() {
   document.getElementById('dosDate').value = now.toISOString().split('T')[0];
 }
 
-// ── Config ─────────────────────────────────────────────
+// â”€â”€ Config â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function loadConfig() {
   try {
     const saved = localStorage.getItem('billingAppConfig');
@@ -907,7 +907,7 @@ function loadConfig() {
       document.getElementById('cfg-intakeid').value  = config.intakeId     || '';
       document.getElementById('cfg-drname').value    = config.drName       || '';
       if (config.drName) {
-        document.getElementById('drNameHeader').textContent = config.drName + ' — Billing';
+        document.getElementById('drNameHeader').textContent = config.drName + ' â€” Billing';
       }
     }
   } catch(e) {}
@@ -923,11 +923,11 @@ function saveConfig() {
   };
   localStorage.setItem('billingAppConfig', JSON.stringify(config));
   if (config.drName) {
-    document.getElementById('drNameHeader').textContent = config.drName + ' — Billing';
+    document.getElementById('drNameHeader').textContent = config.drName + ' â€” Billing';
   }
   closeConfig();
   checkConfig();
-  alert('✅ Settings saved!');
+  alert('âœ… Settings saved!');
 }
 
 function checkConfig() {
@@ -940,7 +940,7 @@ function checkConfig() {
 function openConfig()  { document.getElementById('configModal').classList.add('active'); }
 function closeConfig() { document.getElementById('configModal').classList.remove('active'); }
 
-// ── Load Patients from Intake Sheet ───────────────────
+// â”€â”€ Load Patients from Intake Sheet â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 async function loadPatients() {
   try {
     const url = `https://sheets.googleapis.com/v4/spreadsheets/${config.intakeId}/values/Form%20Responses%201?key=${config.googleKey}`;
@@ -968,7 +968,7 @@ async function loadPatients() {
   }
 }
 
-// ── Patient Search ─────────────────────────────────────
+// â”€â”€ Patient Search â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function searchPatient(query) {
   const resultsEl = document.getElementById('patientResults');
   const hintEl    = document.getElementById('searchHint');
@@ -1010,14 +1010,14 @@ function selectPatient(idx) {
   selectedPatient = allPatients[idx];
   document.getElementById('sel-name').textContent    = selectedPatient.name;
   document.getElementById('sel-fileno').textContent  = selectedPatient.fileNo;
-  document.getElementById('sel-funding').textContent = selectedPatient.funding || '—';
-  document.getElementById('sel-medaid').textContent  = selectedPatient.medAid  || '—';
-  document.getElementById('sel-plan').textContent    = selectedPatient.plan    || '—';
-  document.getElementById('sel-memb').textContent    = selectedPatient.membNo  || '—';
+  document.getElementById('sel-funding').textContent = selectedPatient.funding || 'â€”';
+  document.getElementById('sel-medaid').textContent  = selectedPatient.medAid  || 'â€”';
+  document.getElementById('sel-plan').textContent    = selectedPatient.plan    || 'â€”';
+  document.getElementById('sel-memb').textContent    = selectedPatient.membNo  || 'â€”';
   goToScreen(2);
 }
 
-// ── Recording ──────────────────────────────────────────
+// â”€â”€ Recording â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function toggleRecording() {
   if (!isRecording) startRecording();
   else stopRecording();
@@ -1056,7 +1056,7 @@ function startRecording() {
   recognition.start();
   isRecording = true;
   document.getElementById('recordBtn').classList.add('recording');
-  document.getElementById('recordBtn').textContent = '⏹️';
+  document.getElementById('recordBtn').textContent = 'â¹ï¸';
   document.getElementById('recordLabel').textContent = 'Recording... tap to stop';
   document.getElementById('recordLabel').classList.add('recording');
   document.getElementById('processBtn').style.display = 'none';
@@ -1066,7 +1066,7 @@ function stopRecording() {
   if (recognition) recognition.stop();
   isRecording = false;
   document.getElementById('recordBtn').classList.remove('recording');
-  document.getElementById('recordBtn').textContent = '🎤';
+  document.getElementById('recordBtn').textContent = 'ðŸŽ¤';
   document.getElementById('recordLabel').textContent = 'Tap to record again';
   document.getElementById('recordLabel').classList.remove('recording');
   if (transcript) {
@@ -1074,7 +1074,7 @@ function stopRecording() {
   }
 }
 
-// ── AI Processing ──────────────────────────────────────
+// â”€â”€ AI Processing â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 async function processWithAI() {
   if (!transcript) return;
   goToScreen(3);
@@ -1083,7 +1083,7 @@ async function processWithAI() {
   // Pre-fill confirmation screen
   document.getElementById('conf-fileno').textContent  = selectedPatient.fileNo;
   document.getElementById('conf-patient').textContent = selectedPatient.name;
-  document.getElementById('conf-funding').textContent = selectedPatient.funding + (selectedPatient.medAid ? ' — ' + selectedPatient.medAid : '');
+  document.getElementById('conf-funding').textContent = selectedPatient.funding + (selectedPatient.medAid ? ' â€” ' + selectedPatient.medAid : '');
   document.getElementById('conf-dos').textContent     = document.getElementById('dosDate').value;
 
   try {
@@ -1130,11 +1130,11 @@ Rules:
     document.getElementById('conf-icd10').value    = codes.icd10    || '';
     document.getElementById('conf-modifier').value = codes.modifier || '';
 
-    showAIStatus('done', '✅ Codes extracted — please review and confirm');
+    showAIStatus('done', 'âœ… Codes extracted â€” please review and confirm');
 
   } catch(e) {
     console.error(e);
-    showAIStatus('error', '⚠️ Could not extract codes automatically — please fill in manually');
+    showAIStatus('error', 'âš ï¸ Could not extract codes automatically â€” please fill in manually');
   }
 }
 
@@ -1144,11 +1144,13 @@ function showAIStatus(type, msg) {
   box.innerHTML = `<div class="ai-status ${type}">${spinner}<span>${msg}</span></div>`;
 }
 
-// ── Submit Billing ─────────────────────────────────────
+// â”€â”€ Submit Billing â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzC-x4lAWQJ65K5YMqsyVzbgrjl_7eo7IpwnPB3LZYGr1lby_pWA-d3KJa6eZrjGgBu/exec';
+
 async function submitBilling() {
   const btn = document.getElementById('submitBtn');
   btn.disabled = true;
-  btn.textContent = '⏳ Submitting...';
+  btn.textContent = 'â³ Submitting...';
 
   const tariff   = document.getElementById('conf-tariff').value.trim();
   const icd10    = document.getElementById('conf-icd10').value.trim();
@@ -1159,48 +1161,46 @@ async function submitBilling() {
   if (!tariff || !icd10) {
     alert('Please enter at least a Tariff Code and ICD-10 Code before submitting.');
     btn.disabled = false;
-    btn.textContent = '✅ Submit Billing Entry';
+    btn.textContent = 'âœ… Submit Billing Entry';
     return;
   }
 
-  // Row: Timestamp, FileNo, PatientName, DateOfService, FundingType, MedAid, MembershipNo, TariffCode, ICD10, Modifiers
-  const row = [
-    new Date().toISOString(),
-    selectedPatient.fileNo,
-    selectedPatient.name,
-    dos,
-    selectedPatient.funding,
-    selectedPatient.medAid,
-    selectedPatient.membNo,
-    tariff,
-    icd10,
-    modifier,
-    notes
-  ];
+  const payload = {
+    timestamp:     new Date().toISOString(),
+    fileNo:        selectedPatient.fileNo,
+    patientName:   selectedPatient.name,
+    dateOfService: dos,
+    fundingType:   selectedPatient.funding,
+    medAid:        selectedPatient.medAid,
+    membNo:        selectedPatient.membNo,
+    tariff:        tariff,
+    icd10:         icd10,
+    modifier:      modifier,
+    notes:         notes
+  };
 
   try {
-    const url = `https://sheets.googleapis.com/v4/spreadsheets/${config.sheetId}/values/Form%20Responses%201:append?valueInputOption=USER_ENTERED&key=${config.googleKey}`;
-    const res = await fetch(url, {
+    const res = await fetch(APPS_SCRIPT_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ values: [row] })
+      body: JSON.stringify(payload)
     });
 
-    if (!res.ok) throw new Error('Sheet write failed');
+    const result = await res.json();
+    if (!result.success) throw new Error(result.error || 'Submit failed');
 
     document.getElementById('successMsg').textContent =
-      `${selectedPatient.name} (${selectedPatient.fileNo}) — ${tariff} / ${icd10} logged successfully.`;
+      `${selectedPatient.name} (${selectedPatient.fileNo}) â€” ${tariff} / ${icd10} logged successfully.`;
     goToScreen(4);
 
   } catch(e) {
     console.error(e);
-    alert('⚠️ Failed to submit to sheet. Please check your API keys and Sheet ID in settings.');
+    alert('âš ï¸ Failed to submit to sheet. Please check your settings and try again.');
     btn.disabled = false;
-    btn.textContent = '✅ Submit Billing Entry';
+    btn.textContent = 'âœ… Submit Billing Entry';
   }
 }
 
-// ── Navigation ─────────────────────────────────────────
+// â”€â”€ Navigation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function goToScreen(n) {
   document.querySelectorAll('.screen').forEach((s,i) => {
     s.classList.toggle('active', i === n - 1);
