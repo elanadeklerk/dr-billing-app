@@ -716,7 +716,7 @@
     <div class="card">
       <div class="card-title">Find Patient</div>
       <div class="search-wrap">
-        <span class="search-icon">[FIND]</span>
+        <span class="search-icon"></span>
         <input type="text" id="searchInput" placeholder="Type patient name or file number..." oninput="searchPatient(this.value)" autocomplete="off" />
       </div>
       <div class="patient-results" id="patientResults"></div>
@@ -962,7 +962,7 @@ async function loadPatients() {
       wcaClaim:  r[20] || '',
       insurCo:   r[22] || '',
       policyNo:  r[23] || '',
-    })).filter(p => p.fileNo && p.name && p.fileNo.toString().startsWith("PT-"));
+    })).filter(p => p.name && p.name.trim() !== "");
   } catch(e) {
     console.error('Failed to load patients:', e);
   }
