@@ -721,6 +721,7 @@
       </div>
       <div class="patient-results" id="patientResults"></div>
       <div class="hint" id="searchHint">Start typing to search patients</div>
+  <div id="debugInfo" style="margin-top:12px; padding:10px; background:#22263a; border-radius:8px; font-size:11px; color:#8b90b8; word-break:break-all;"></div>
     </div>
   </div>
 
@@ -945,8 +946,16 @@ async function loadPatients() {
   try {
     const url = `https://sheets.googleapis.com/v4/spreadsheets/${config.intakeId}/values/Form%20Responses%201?key=${config.googleKey}`;
     const res  = await fetch(url);
+    if (!res.ok) {
+      document.getElementById("debugInfo").textContent = "Sheet load error: " + res.status + " " + res.statusText;
+      return;
+    }
     const data = await res.json();
-    if (!data.values || data.values.length < 2) return;
+    if (!data.values || data.values.length < 2) {
+      document.getElementById("debugInfo").textContent = "No data: " + JSON.stringify(data).substring(0, 200);
+      return;
+    }
+    document.getElementById("debugInfo").textContent = "Loaded " + (data.values.length - 1) + " rows. Patients found: " + allPatients.length + ". First: " + (allPatients[0] ? allPatients[0].name + " / " + allPatients[0].funding : "none");
 
     const rows = data.values.slice(1); // skip header
     allPatients = rows.map(r => ({
